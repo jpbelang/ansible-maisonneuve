@@ -1,0 +1,20 @@
+- hosts: dnsservers
+  tasks:
+    - name: Installe bind
+      become: true
+      dnf:
+         name: 
+           - bind
+           - bind-utils
+         state: latest
+    - name: Lance bind
+      become: true
+      service:
+         name: named
+         state: started
+         enabled: true
+    - name: Copy config
+      become: true
+      copy:
+         src: dns-server-1/
+         dest: /
