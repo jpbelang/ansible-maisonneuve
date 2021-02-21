@@ -2,16 +2,16 @@
 ; BIND data file for local loopback interface
 ;
 $TTL    604800
-@       IN      SOA     86.168.192.in-addr.arpa. root.example.com. (
-                              1         ; Serial
+@       IN      SOA     ns.mondomaine.interne. root.mondomaine.interne. (
+                     2021022101         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;
-@       IN      NS      ns.eloas.internal.
+@       IN      NS      ns.mondomaine.internal.
 ns      IN      A       192.168.86.37
 
 ;also list other computers
-37      IN      PTR       ns.eloas.interne.
-44      IN      PTR       box.eloas.interne.
+37      IN      PTR       ns.mondomaine.interne.
+44      IN      PTR       box.mondomaine.interne.
