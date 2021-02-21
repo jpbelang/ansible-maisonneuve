@@ -7,14 +7,22 @@
            - bind
            - bind-utils
          state: latest
+    - name: Configuration du firewall de base
+      become: true
+      ansible.posix.firewalld:
+         service: dns
+         zone: public
+         immediate: yes
+         permanent: yes
+         state: enabled
+    - name: Copy config
+      become: true
+      copy:
+         src: '{{ ansible_host }}/'
+         dest: /
     - name: Lance bind
       become: true
       service:
          name: named
-         state: started
+         state: reloaded
          enabled: true
-    - name: Copy config
-      become: true
-      copy:
-         src: dns-server-1/
-         dest: /
