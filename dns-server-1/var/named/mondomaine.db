@@ -3,14 +3,16 @@
 ;
 $TTL    86400
 @       IN      SOA     ns.mondomaine.interne. root.mondomaine.interne. (
-                     2021030102         ; Serial
+                     2021030202         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;
 @       IN      NS      ns.mondomaine.interne.
+@       IN      NS      ns-sec.mondomaine.interne.
 ns      IN      A       192.168.86.37
+ns-sec  IN      A       192.168.86.244
 
 ;also list other computers
 box     IN      A       192.168.86.44
