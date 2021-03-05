@@ -14,3 +14,4 @@ ns      IN      A       192.168.86.37
 
 ;also list other computers
 box     IN      A       192.168.86.44
+resolv     IN      A       192.168.86.244
