@@ -12,8 +12,5 @@ $TTL    86400
 @       IN      NS      ns.mondomaine.interne.
 ns      IN      A       192.168.86.37
 
-lab	IN	NS	ns.lab.mondomaine.interne.
-ns.lab	IN	A	192.168.86.244
-
 ;also list other computers
-box     IN      A       192.168.86.44
+www     IN      A       192.168.86.174

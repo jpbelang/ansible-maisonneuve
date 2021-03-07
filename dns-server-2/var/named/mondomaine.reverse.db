@@ -1,19 +1,18 @@
 ;
 ; BIND data file for local loopback interface
 ;
-$TTL    86400
+$TTL    604800
 @       IN      SOA     ns.mondomaine.interne. root.mondomaine.interne. (
-                     2021030102         ; Serial
+                     2021022101         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;
-@       IN      NS      ns.mondomaine.interne.
+@       IN      NS      ns.mondomaine.internal.
 ns      IN      A       192.168.86.37
 
-lab	IN	NS	ns.lab.mondomaine.interne.
-ns.lab	IN	A	192.168.86.244
-
 ;also list other computers
-box     IN      A       192.168.86.44
+37      IN      PTR       ns.mondomaine.interne.
+44      IN      PTR       box.mondomaine.interne.
+244      IN      PTR       resolv.mondomaine.interne.
