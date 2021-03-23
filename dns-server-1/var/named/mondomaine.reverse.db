@@ -14,4 +14,4 @@ ns      IN      A       192.168.86.37
 
 ;also list other computers
 37      IN      PTR       ns.mondomaine.interne.
-44      IN      PTR       box.mondomaine.interne.
+4	IN	PTR	  box.mondomaine.interne.
