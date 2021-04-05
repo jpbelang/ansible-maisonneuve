@@ -21,7 +21,9 @@
        dest: /
     - name: Set cgi permissions in /var/www
       become: true
-      shell: chmod 755 /var/www/repertoire1/cgi-bin/date
+      file: 
+        path: /var/www/cgi-bin/date
+        mode: 0755
     - name: Lance httpd
       become: true
       service:
