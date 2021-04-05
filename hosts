@@ -1,3 +1,5 @@
 [dnsservers]
 dns-server-1
 # dns-server-2
+[httpservers]
+http

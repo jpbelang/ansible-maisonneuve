@@ -1,0 +1,30 @@
+- hosts: httpservers
+  tasks:
+    - name: Installe httpd
+      become: true
+      dnf:
+         name: 
+           - httpd
+         state: latest
+    - name: Configuration du firewall de base
+      become: true
+      ansible.posix.firewalld:
+         service: http
+         zone: public
+         immediate: yes
+         permanent: yes
+         state: enabled
+    - name: Copy config
+      become: true
+      copy:
+       src: '{{ ansible_host }}/'
+       dest: /
+    - name: Set cgi permissions in /var/www
+      become: true
+      shell: chmod 755 /var/www/repertoire1/cgi-bin/date
+    - name: Lance httpd
+      become: true
+      service:
+         name: httpd
+         state: reloaded
+         enabled: true
