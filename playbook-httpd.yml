@@ -22,8 +22,12 @@
     - name: Set cgi permissions in /var/www
       become: true
       file: 
-        path: /var/www/cgi-bin/date
+        path: /var/www/something/cgi-bin/date
         mode: 0755
+    - name: Delete default welcome
+      become: true
+      shell: 
+        cmd: mv -f /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.not || true
     - name: Lance httpd
       become: true
       service:
