@@ -1,0 +1,42 @@
+ServerRoot "/etc/httpd"
+Listen 80
+Include conf.modules.d/*.conf
+ServerAdmin webmaster@blahblah.com
+ServerName localhost
+
+User apache
+Group apache
+DocumentRoot /var/www/html
+TypesConfig /etc/mime.types
+
+ProxyRequests On
+ProxyVia On
+
+<Proxy *>
+ Order deny,allow
+ Deny from all
+ Allow from all
+</Proxy>
+CacheQuickHandler off
+Header unset Cache-Control
+CacheIgnoreNoLastMod On
+CacheEnable disk http://
+CacheMaxFileSize 10000000000
+CacheMinFileSize 1000000
+CacheRoot "/var/www/cache"
+CacheMaxExpire 24
+CacheLastModifiedFactor 0.1
+CacheIgnoreQueryString On
+EnableSendfile On
+CacheDefaultExpire 7200
+
+CacheIgnoreNoLastMod On
+CacheStorePrivate On
+CacheStoreNoStore On
+
+ServerName proxy
+
+ErrorLog "/var/log/httpd/proxy-error.log"
+
+LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+CustomLog "/var/log/httpd/proxy-access.log" combined
