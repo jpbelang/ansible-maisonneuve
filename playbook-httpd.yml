@@ -19,11 +19,6 @@
       copy:
        src: '{{ ansible_host }}/'
        dest: /
-    - name: Set cgi permissions in /var/www
-      become: true
-      file: 
-        path: /var/www/cgi-bin/date
-        mode: 0755
     - name: Lance httpd
       become: true
       service:
