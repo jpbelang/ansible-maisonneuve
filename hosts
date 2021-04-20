@@ -2,4 +2,6 @@
 dns-server-1
 # dns-server-2
 [httpservers]
-http
+http-1
+http-2
+proxy

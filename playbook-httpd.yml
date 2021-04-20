@@ -19,15 +19,14 @@
       copy:
        src: '{{ ansible_host }}/'
        dest: /
-    - name: Set cgi permissions in /var/www
-      become: true
-      file: 
-        path: /var/www/something/cgi-bin/date
-        mode: 0755
     - name: Delete default welcome
       become: true
       shell: 
         cmd: mv -f /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.not || true
+    - name: Enlever SELinux
+      become: true
+      shell: 
+        cmd: setenforce 0 || true
     - name: Lance httpd
       become: true
       service:
